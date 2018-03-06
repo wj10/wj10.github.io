@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>太极图</title>
+	</head>
+	<!--
+		1、animation ==》 css动画属性
+				参数：
+					infinite 重复播放
+					linear	回头播
+					alternate	匀速播放
+		2、	transform:
+				origin	属性允许您改变被转换元素的位置。
+				rotate	X Y Z	2D或3D旋转
+		3、@keyframes ==》规定动画
+		4、css3渐变属性：
+			linear-gradient==》线性渐变	向下/向上/向左/向右/对角方向
+			Radial-gradient==》径向渐变	由它们的中心定义
+	-->
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 500px;
+			height: 500px;
+			border-radius:50%;
+			margin: 100px auto;
+			background: linear-gradient(black 50%, white 50%);/*线性渐变（Linear Gradients）- 向下/向上/向左/向右/对角方向*/
+			border: 1px solid #ccc;
+			display: flex;
+		}
+		
+		.black,.white{
+			width: 250px;
+			height: 250px;
+			border-radius: 50%;
+			margin: auto;
+			animation:animationout 1s infinite linear alternate;
+		}
+		.black{
+			background: Radial-gradient(white 25%, black 25%);/*径向渐变（Radial Gradients）- 由它们的中心定义*/
+			transform-origin: 0% 50%;
+		}
+		.white{
+			background: Radial-gradient(black 25%, white 25%);
+			transform-origin: 100% 50%;
+			animation-delay:-1s;
+		}
+		@keyframes animationout{
+			from{
+				transform: scale(0.5);
+			}
+			to{
+				transform: scale(1.5);
+			}
+		}
+	</style>
+	<body>
+		<div class="box">
+			<div class="black"></div>
+			<div class="white"></div>
+		</div>
+	</body>
+</html>
